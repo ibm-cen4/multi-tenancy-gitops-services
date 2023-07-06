@@ -52,7 +52,7 @@ global:
     ppc64le: "2 - No preference"
   install:
     itxaUI:
-      enabled: true
+      enabled: false
     itxadbinit:
       enabled: true
   nginxTimeout: "10m"
@@ -67,8 +67,8 @@ itxauiserver:
   # runAsUser applicable only to non OCP clusters.
   runAsUser: 1001
   image:
-    name: itxa-ui-server-oci
-    tag: itxa-ui-server-oci-june21
+    name: itxa-ui
+    tag: 10.0.1.8
     digest: sha256:52a2542eaa9b2b377026efdbfb144d8fc9a3cc2daa63e6c4d8943a3c6621128a
     pullPolicy: IfNotPresent
   config:
@@ -102,7 +102,7 @@ itxauiserver:
       cpu: 2
   ingress:
     enabled: true
-    host: "itxa.itzroks-664003h6xc-z2t6sc-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud"
+    host: "itxa.itzroks-664003h6xc-uqjsu5-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
     ssl:
       enabled: false
       secretname: "itxa-ingress-secret"
@@ -153,9 +153,9 @@ itxadatasetup:
   dbType: "db2"
   #deployPacks - if flag is set to true, will pass the path of respective pack jar to spedeploy-packs.sh and spedbinit-container.sh to deploy and load the pack into database.
   deployPacks:
-    edi: true
-    fsp: true
-    hc: true
+    edi: false
+    fsp: false
+    hc: false
   tenantId: ""
   ignoreVersionWarning: true
   #migrateDB:
@@ -170,7 +170,7 @@ itxadbinit:
   # runAsUser applicable only to non OCP clusters.
   runAsUser: 1001
   image:
-    name: itxa-init-db-plus-packs
+    name: itxa-db-plus-packs
     #tag: itxa-init-db-plus-packs-june21
     digest: sha256:2eaa29a4fa76c2e920563ef43ac1736aa3cacf151c208a8ec06634284f34f6f2
     pullPolicy: IfNotPresent
