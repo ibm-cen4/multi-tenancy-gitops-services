@@ -15,9 +15,9 @@ global:
   image:
     repository: "image-registry.openshift-image-registry.svc:5000/b2bi-prod/b2bi"
   # Provide the tag value in double quotes
-    tag: "b2bi-june18"
+    tag: "6.2.23"
   # If digest is specified, it takes precedence over tag
-    digest: sha256:3e60c61f4e38fa5be50c28db8887fcd86f6f243d6055b9730ab0b2a0c01a5ef3
+    digest: sha256:3e39915ea43e6cfed49325d6d979938859e942da7af699f088cc11bde88b3da5
     pullPolicy: IfNotPresent
     pullSecret: ""
   networkPolicies:
@@ -151,14 +151,14 @@ ingress:
   port:
 
 dataSetup:
-  enabled: false
+  enabled: true
   upgrade: false
   image:
     repository: "image-registry.openshift-image-registry.svc:5000/b2bi-prod/b2bi-dbsetup"
     # Provide the tag value in double quotes
-    tag: "b2bi-dbsetup-june18"
+    tag: "db6.2.23"
      # If digest is specified, it takes precedence over tag
-    digest: sha256:6be066b14d4d6cdc752b691f3907c8673ea36e82ce8ebe721e41882dce331e93
+    digest: sha256:140d89799208ec6bc1e0b5787d42b1524dc9933c83c67a54e2aeab9b18c289c9
     pullPolicy: IfNotPresent
     pullSecret: ""
 
@@ -250,7 +250,7 @@ integrations:
       claims:
         name: itxa-nfs-claim
     sso:
-      host: "itxa.itzroks-664003h6xc-z2t6sc-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud"
+      host: "itxa.itzroks-664003h6xc-uqjsu5-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
       port: 443
       ssl:
         enabled: true
@@ -275,11 +275,11 @@ setupCfg:
 
   # Provide the DB attributes
   dbVendor: db2
-  dbHost: 172.21.78.133
+  dbHost: 172.21.24.222
   dbPort: 50000
   dbData: B2BIDB
   dbDrivers: db2jcc4.jar
-  dbCreateSchema: false
+  dbCreateSchema: true
   oracleUseServiceName: false
   # Values can be either true or false 
   usessl: false
@@ -439,6 +439,12 @@ asi:
         targetPort: rest-adapter
         nodePort: 30007
         protocol: TCP
+      lwHttpAdapter: 
+        name: rest-adapter
+        port: 10580
+        targetPort: rest-adapter
+        nodePort: 10080
+        protocol: TCP
     extraPorts: []
       #-name: http-1
       # port: 46000
@@ -449,8 +455,8 @@ asi:
     annotations: {}  
   
   backendService:
-    # type: LoadBalancer
-    type: NodePort
+    type: LoadBalancer
+    #type: NodePort
     # Supported values are "ClientIP" & "None". Default is "None".
     sessionAffinity: None
     #override session affinity timeout configuration (applicable when sessionAffinity is configured other than "None")
@@ -511,9 +517,9 @@ asi:
     
   ingress:
     internal:
-      host: "asi-b2bi-prod.itzroks-664003h6xc-z2t6sc-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud"
+      host: "asi-b2bi-prod.itzroks-664003h6xc-uqjsu5-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
       tls:
-        enabled: false
+        enabled: true
         secretName: ""
       extraPaths: []
       #  - routePrefix: "hello"
@@ -521,9 +527,9 @@ asi:
       #    servicePort: "my-http"
       #    enableHttps: false
     external:
-      host: "ex-asi-b2bi-prod.itzroks-664003h6xc-z2t6sc-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud"
+      host: "ex-asi-b2bi-prod.itzroks-664003h6xc-uqjsu5-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
       tls:
-        enabled: false
+        enabled: true
         secretName: ""
       extraPaths: []
       #  - routePrefix: "hello"
@@ -739,8 +745,8 @@ ac:
     annotations: {}  
       
   backendService:
-    # type: LoadBalancer
-    type: NodePort
+    type: LoadBalancer
+    #type: NodePort
     # Supported values are "ClientIP" & "None". Default is "None".
     sessionAffinity: None
     #override session affinity timeout configuration (applicable when sessionAffinity is configured other than "None")
@@ -787,9 +793,9 @@ ac:
       
   ingress:
     internal:
-      host: "ac-b2bi-prod.itzroks-664003h6xc-z2t6sc-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud"
+      host: "ac-b2bi-prod.itzroks-664003h6xc-uqjsu5-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
       tls:
-        enabled: false
+        enabled: true
         secretName: ""
       extraPaths: []
       #  - routePrefix: "hello"
@@ -797,9 +803,9 @@ ac:
       #    servicePort: "my-http"
       #    enableHttps: false
     external:
-      host: "ex-ac-b2bi-prod.itzroks-664003h6xc-z2t6sc-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud"
+      host: "ex-ac-b2bi-prod.itzroks-664003h6xc-uqjsu5-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
       tls:
-        enabled: false
+        enabled: true
         secretName: ""
       extraPaths: []
       #  - routePrefix: "hello"
@@ -1033,9 +1039,9 @@ api:
 
   ingress:
     internal:
-      host: "api-b2bi-prod.itzroks-664003h6xc-z2t6sc-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud"
+      host: "api-b2bi-prod.itzroks-664003h6xc-uqjsu5-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
       tls:
-        enabled: false
+        enabled: true
         secretName: ""
 
   extraPVCs: []
