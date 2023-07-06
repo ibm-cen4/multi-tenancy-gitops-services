@@ -501,8 +501,8 @@ asi:
      
   startupProbe:
     initialDelaySeconds: 30
-    timeoutSeconds: 3000
-    periodSeconds: 6000
+    timeoutSeconds: 300
+    periodSeconds: 600
     failureThreshold: 5
        
   internalAccess:
