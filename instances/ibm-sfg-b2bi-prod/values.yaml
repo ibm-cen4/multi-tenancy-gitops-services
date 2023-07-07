@@ -446,9 +446,9 @@ asi:
       #   nodePort: 10080
       #   protocol: TCP
     extraPorts: []
-      -name: lwfw
+      - name: lwfw
         port: 10580
-        targetPort: http
+        targetPort: 10580
         nodePort: 30008
         protocol: TCP
     loadBalancerIP:  
