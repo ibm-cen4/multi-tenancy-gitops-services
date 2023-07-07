@@ -52,7 +52,7 @@ global:
     ppc64le: "2 - No preference"
   install:
     itxaUI:
-      enabled: false
+      enabled: true
     itxadbinit:
       enabled: true
   nginxTimeout: "10m"
@@ -153,9 +153,9 @@ itxadatasetup:
   dbType: "db2"
   #deployPacks - if flag is set to true, will pass the path of respective pack jar to spedeploy-packs.sh and spedbinit-container.sh to deploy and load the pack into database.
   deployPacks:
-    edi: false
-    fsp: false
-    hc: false
+    edi: true
+    fsp: true
+    hc: true
   tenantId: ""
   ignoreVersionWarning: true
   #migrateDB:
