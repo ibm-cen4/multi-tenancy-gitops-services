@@ -439,12 +439,12 @@ asi:
         targetPort: rest-adapter
         nodePort: 30007
         protocol: TCP
-      lwHttpAdapter: 
-        name: rest-adapter
-        port: 10580
-        targetPort: rest-adapter
-        nodePort: 10080
-        protocol: TCP
+      # lwHttpAdapter: 
+      #   name: rest-adapter
+      #   port: 10580
+      #   targetPort: rest-adapter
+      #   nodePort: 10080
+      #   protocol: TCP
     extraPorts: []
       #-name: http-1
       # port: 46000
