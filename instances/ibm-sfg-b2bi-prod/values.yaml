@@ -445,7 +445,7 @@ asi:
       #   targetPort: rest-adapter
       #   nodePort: 10080
       #   protocol: TCP
-    extraPorts: []
+    extraPorts:
       - name: lwfw
         port: 10580
         targetPort: 10580
