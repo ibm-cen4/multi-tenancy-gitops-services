@@ -519,7 +519,7 @@ asi:
     internal:
       host: "asi-b2bi-prod.itzroks-664003h6xc-uqjsu5-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
       tls:
-        enabled: true
+        enabled: false
         secretName: ""
       extraPaths: []
       #  - routePrefix: "hello"
@@ -529,7 +529,7 @@ asi:
     external:
       host: "ex-asi-b2bi-prod.itzroks-664003h6xc-uqjsu5-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
       tls:
-        enabled: true
+        enabled: false
         secretName: ""
       extraPaths: []
       #  - routePrefix: "hello"
@@ -795,7 +795,7 @@ ac:
     internal:
       host: "ac-b2bi-prod.itzroks-664003h6xc-uqjsu5-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
       tls:
-        enabled: true
+        enabled: false
         secretName: ""
       extraPaths: []
       #  - routePrefix: "hello"
@@ -805,7 +805,7 @@ ac:
     external:
       host: "ex-ac-b2bi-prod.itzroks-664003h6xc-uqjsu5-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
       tls:
-        enabled: true
+        enabled: false
         secretName: ""
       extraPaths: []
       #  - routePrefix: "hello"
@@ -1041,7 +1041,7 @@ api:
     internal:
       host: "api-b2bi-prod.itzroks-664003h6xc-uqjsu5-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
       tls:
-        enabled: true
+        enabled: false
         secretName: ""
 
   extraPVCs: []
