@@ -53,6 +53,8 @@ global:
   install:
     itxaUI:
       enabled: true
+    #start with itxadbinit == true , itxaUI == false, and all deploy packs == false
+    #then turn itxaUI == true and update helm chat, then finally turn deploy pack == true and update helm chart
     itxadbinit:
       enabled: true
   nginxTimeout: "10m"
