@@ -8,8 +8,9 @@
 # Declare variables to be passed into your templates.
 
 ### SHADY ATTIA
-#start with itxadbinit == true , itxaUI == false, and all deploy packs == false
-#then turn itxaUI == true and update helm chat, then finally turn deploy pack == true and update helm chart
+#start with itxadbinit == true , itxaUI == false, and all deploy packs == false and install
+#then turn itxaUI == true and itxadbinit == false update helm chat 
+#then finally turn itxadbinit == true and deploy pack == true and update helm chart
 
 global:
   # Change the values license to true to indicate acceptance of license https://ibm.biz/Bdfpad
