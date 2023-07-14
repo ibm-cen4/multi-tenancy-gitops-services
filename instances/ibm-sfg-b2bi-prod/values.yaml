@@ -241,7 +241,7 @@ integrations:
       tag: "10.0.1.8"
       digest: "sha256:e21be777f600072613730ad9cc171df4ede9e021bacd84b373ffc8e85bc0992c"
       pullPolicy: IfNotPresent
-      pullSecret: "ibm-entitlement-key"
+      # pullSecret: "ibm-entitlement-key"
     appSecret: "itxa-db2-secrets"
     secureDBConnection:
       enabled: false
