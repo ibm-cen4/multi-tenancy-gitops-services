@@ -233,13 +233,13 @@ integrations:
         # Supported levels are "none", "failures", "info" and "all". Default is "none".
         level: "none"
   itxaIntegration:
-    enabled: false
+    enabled: true
     dataSetup:
       enabled: true
     image:
-      repository: "cp.icr.io/cp/ibm-itx-rs"
-      tag: "10.1.1.1.20221116"
-      digest: "sha256:d6dea7cad255582d091f91c7ab226d819ce105a4146b9ac706d96262dd929afc"
+      repository: "image-registry.openshift-image-registry.svc:5000/b2bi-prod/itxa-runtime"
+      tag: "10.0.1.8"
+      digest: "sha256:e21be777f600072613730ad9cc171df4ede9e021bacd84b373ffc8e85bc0992c"
       pullPolicy: IfNotPresent
       pullSecret: "ibm-entitlement-key"
     appSecret: "itxa-db2-secrets"
@@ -251,9 +251,9 @@ integrations:
         name: itxa-nfs-claim
     sso:
       host: "itxa.itzroks-664003h6xc-uqjsu5-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
-      port: 443
+      port: 80
       ssl:
-        enabled: true
+        enabled: false
 
 #setup.cfg configuration starts here. Property names must follow camelCase format.
 setupCfg:
